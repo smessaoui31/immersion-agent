@@ -1,0 +1,7 @@
+# Ta clé Claude : ne jamais l'envoyer sur GitHub
+.env
+
+# Fichiers générés par Python
+__pycache__/
+*.pyc
+.venv/
