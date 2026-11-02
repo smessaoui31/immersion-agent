@@ -6,6 +6,9 @@ Quand Claude veut s'en servir, il nous le demande, on lance la fonction
 et on lui renvoie le résultat.
 
 Lance :  python etapes/2_outil.py
+
+Comme à l'étape 1 : quand un trou est une ligne « raise NotImplementedError(...) »,
+supprime-la et écris ton code à sa place. Enregistre (Ctrl+S), puis relance.
 """
 import os
 import sys
@@ -61,15 +64,18 @@ def repondre(question):
     resultats = []
     for bloc in reponse.content:
         # TROU 2 : reponse.content contient plusieurs blocs (réflexion, texte, outil...).
-        #          Passe au bloc suivant (avec continue) si son type n'est pas "tool_use".
-        raise NotImplementedError("TROU 2 : ne garde que les blocs de type tool_use")
+        #          Passe au bloc suivant si son type n'est pas "tool_use".
+        #          Indice : un « if » qui compare bloc.type à "tool_use", puis le mot-clé continue.
+        #          Supprime la ligne « raise » ci-dessous et écris ton code à sa place.
+        raise NotImplementedError("TROU 2 : remplace cette ligne par ton code (ne garde que les blocs tool_use)")
 
         print(f"  [outil] {bloc.name}({bloc.input})")
         resultat = meteo(**bloc.input)  # on lance vraiment la fonction Python
 
-        # TROU 3 : range le résultat dans la liste resultats, sous cette forme :
-        #          {"type": "tool_result", "tool_use_id": bloc.id, "content": resultat}
-        raise NotImplementedError("TROU 3 : range le résultat de l'outil dans resultats")
+        # TROU 3 : ajoute le résultat à la liste resultats (avec .append, comme à l'étape 1),
+        #          sous cette forme : {"type": "tool_result", "tool_use_id": bloc.id, "content": resultat}
+        #          Supprime la ligne « raise » ci-dessous et écris ton code à sa place.
+        raise NotImplementedError("TROU 3 : remplace cette ligne par ton code (range le résultat dans resultats)")
 
     # On renvoie tous les résultats à Claude, qui peut enfin répondre
     messages.append({"role": "user", "content": resultats})

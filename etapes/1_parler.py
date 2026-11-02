@@ -3,8 +3,10 @@
 Objectif : tenir une conversation de plusieurs tours avec Claude.
 Lance :  python etapes/1_parler.py
 
-Complète les TROUS dans l'ordre. Chaque trou t'explique quoi écrire,
-et le programme te dit lequel il te reste à faire.
+Complète les TROUS dans l'ordre. Quand un trou est une ligne
+« raise NotImplementedError(...) », supprime-la et écris ton code à sa place,
+en suivant le commentaire juste au-dessus. Enregistre (Ctrl+S), puis relance :
+le programme te dit quel trou il te reste à faire.
 
 Défi final : dis-lui ton prénom, puis demande-lui comment tu t'appelles.
 """
@@ -42,14 +44,17 @@ def discuter(messages, question):
     """Ajoute la question à l'historique, obtient la réponse et l'ajoute aussi."""
     # TROU 2 : ajoute la question à la liste messages.
     #          Format d'un message : {"role": "user", "content": question}
-    raise NotImplementedError("TROU 2 : ajoute la question de l'utilisateur à messages")
+    #          En Python, on ajoute un élément à une liste avec : ma_liste.append(element)
+    #          Supprime la ligne « raise » ci-dessous et écris ton code à sa place.
+    raise NotImplementedError("TROU 2 : remplace cette ligne par ton code (ajoute la question à messages)")
 
     reponse = demander(messages)
 
     # TROU 3 : ajoute la réponse de Claude à messages, avec le rôle "assistant".
-    #          Sans cette ligne, Claude oublie tout d'un tour à l'autre.
-    #          Une fois que tout marche, mets-la en commentaire pour voir !
-    raise NotImplementedError("TROU 3 : ajoute la réponse de Claude à messages")
+    #          Même principe qu'au TROU 2. Sans cette ligne, Claude oublie tout
+    #          d'un tour à l'autre : une fois que tout marche, mets-la en commentaire pour voir !
+    #          Supprime la ligne « raise » ci-dessous et écris ton code à sa place.
+    raise NotImplementedError("TROU 3 : remplace cette ligne par ton code (ajoute la réponse de Claude à messages)")
 
     return reponse
 

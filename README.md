@@ -31,6 +31,16 @@ Ton Codespace se met en veille après 30 minutes sans activité, par exemple au 
 
 Chaque fichier contient des **TROUS** à compléter, dans l'ordre. Lance le programme : il te dit lequel il te reste à faire.
 
+Un trou, c'est souvent une ligne `raise NotImplementedError(...)`. **Supprime-la** et écris ton code à sa place, en suivant le commentaire juste au-dessus. Enregistre (Ctrl+S) avant de relancer. Par exemple :
+
+```python
+# Avant
+    raise NotImplementedError("TROU 2 : remplace cette ligne par ton code (...)")
+
+# Après
+    messages.append({"role": "user", "content": question})
+```
+
 ## 3. Ton projet : `agent.py`
 
 `agent.py` est un agent complet qui marche déjà, avec deux outils : la météo et une calculatrice. Lance-le :

@@ -6,6 +6,9 @@ pouvoir répondre : c'est ce qui fait de lui un agent.
 
 Lance :  python etapes/3_boucle.py
 Essaie : « Il fait combien à Toulouse et à Brest ? Calcule l'écart. »
+
+Comme avant : quand un trou est une ligne « raise NotImplementedError(...) »,
+supprime-la et écris ton code à sa place. Enregistre (Ctrl+S), puis relance.
 """
 import os
 import sys
@@ -46,19 +49,24 @@ def agent(question):
 
         # TROU 1 : si Claude ne demande pas d'outil (stop_reason différent de "tool_use"),
         #          c'est sa réponse finale : renvoie son texte avec texte_de(reponse).
-        raise NotImplementedError("TROU 1 : arrête la boucle quand Claude a fini")
+        #          Indice : un « if » sur reponse.stop_reason, puis return.
+        #          Supprime la ligne « raise » ci-dessous et écris ton code à sa place.
+        raise NotImplementedError("TROU 1 : remplace cette ligne par ton code (arrête la boucle quand Claude a fini)")
 
         resultats = []
         for bloc in reponse.content:
             if bloc.type == "tool_use":
                 print(f"  [étape {etape}] outil {bloc.name}({bloc.input})")
                 # TROU 2 : lance l'outil avec executer_outil(bloc.name, bloc.input),
-                #          puis range le tool_result dans resultats, comme à l'étape 2.
-                raise NotImplementedError("TROU 2 : exécute l'outil et range son résultat")
+                #          puis ajoute le tool_result à resultats, comme à l'étape 2.
+                #          Supprime la ligne « raise » ci-dessous et écris ton code à sa place.
+                raise NotImplementedError("TROU 2 : remplace cette ligne par ton code (exécute l'outil et range son résultat)")
 
-        # TROU 3 : renvoie tous les résultats à Claude dans un message "user".
+        # TROU 3 : renvoie tous les résultats à Claude, en ajoutant à messages :
+        #          {"role": "user", "content": resultats}
         #          Sans ça, Claude redemande sans fin le même outil... jusqu'au garde-fou.
-        raise NotImplementedError("TROU 3 : renvoie les résultats à Claude")
+        #          Supprime la ligne « raise » ci-dessous et écris ton code à sa place.
+        raise NotImplementedError("TROU 3 : remplace cette ligne par ton code (renvoie les résultats à Claude)")
 
     return "Je m'arrête : trop d'étapes."
 
